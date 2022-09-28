@@ -41,7 +41,7 @@ void Player::draw()
 {
 	if (m_isDead)
 	{
-		DrawRectGraph(m_pos.x, m_pos.y, 128, 0, 256, 128, m_handle, true);
+		DrawRectGraph(m_pos.x, m_pos.y, 128, 0, 128, 128, m_handle, true);
 	}
 	else
 	{
