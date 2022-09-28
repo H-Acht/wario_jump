@@ -30,6 +30,9 @@ private:
 	// グラフィックの幅と高さ	当たり判定にも使用する
 	Vec2 m_size;
 
+	//移動開始までの待ち時間（フレーム数）
+	int m_waitFrame;
+
 	// 位置
 	Vec2 m_pos;
 	// ベクトル

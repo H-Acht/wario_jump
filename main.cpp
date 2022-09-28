@@ -36,6 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	car.setGraphic(hCar);
 	car.setup(kFieldY);
 
+
 	// ダブルバッファモード
 	SetDrawScreen(DX_SCREEN_BACK);
 
