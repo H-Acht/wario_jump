@@ -39,8 +39,14 @@ void Player::update()
 
 void Player::draw()
 {
-	if (m_isDead)	return;
-	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
+	if (m_isDead)
+	{
+		DrawRectGraph(m_pos.x, m_pos.y, 128, 0, 256, 128, m_handle, true);
+	}
+	else
+	{
+		DrawRectGraph(m_pos.x, m_pos.y, 0, 0, 128, 128, m_handle, true);
+	}
 }
 
 bool Player::isCol(Car& car)
