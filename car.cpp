@@ -2,6 +2,7 @@
 #include "game.h"
 #include "car.h"
 
+
 namespace
 {
 	constexpr int kWaitFrameMin = 60;
@@ -25,6 +26,7 @@ Car::Car()
 	m_fieldY = 0.0f;
 	m_moveType = kMoveTypeNormal();
 	m_waitFrame = 0;
+	m_countTimer = 0;
 }
 
 void Car::setGraphic(int handle)
@@ -61,7 +63,7 @@ void Car::setup(float fieldY)
 		m_moveType = kMoveTypeReturn;
 	}
 	//デバッグ用に挙動を決める
-	//m_moveType = kMoveTypeReturn;
+	m_moveType = kMoveTypeStop;
 	//動き始めるまでの時間を設定　一秒から三秒待つ　60フレームから180フレーム
 	m_waitFrame = GetRand(kWaitFrameMax - kWaitFrameMin) + kWaitFrameMin;
 }
@@ -91,7 +93,6 @@ void Car::update()
 	default:
 		updateNormal();
 		break;
-
 	}
 }
 
@@ -112,6 +113,12 @@ void Car::updateStop()
 	if (m_pos.x == Game::kScreenWidth / 2)
 	{
 		m_vec.x = 0;
+
+		m_countTimer++;
+		if (m_countTimer > 20)
+		{
+			m_vec.x = kSpeed;
+		}
 	}
 }
 
